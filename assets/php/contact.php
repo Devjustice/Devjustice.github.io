@@ -4,7 +4,7 @@
 $emailTo = "jung4477555@naver.com";
 
 // ENTER IDENTIFIER
-$emailIdentifier =  "Message sent via contact form from " . $_SERVER["SERVER_NAME"];
+$emailIdentifier =  "https://devjustice.github.io/" . $_SERVER["SERVER_NAME"];
 
 
 if($_POST) {
