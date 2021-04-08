@@ -538,34 +538,42 @@
                 <!-- /WORK -->
                 
                 
-                <!-- CONTACT -->
-                <section id="contact">
-
-
-                    <h3 class="headline scroll-animated">Contact Me</h3>
+           
                     
-                    
-                    <!-- CONTACT FORM --> 
-                    <form id="contact-form" action="assets/php/contact.php" method="post">
+                    <script>
+                        $(document).ready(function() {
+                        $('myform').on('submit',function(){
+             
+                        // Add text 'loading...' right after clicking on the submit button. 
+                        $('.output_message').text('Loading...'); 
+             
+                        var form = $(this);
+                             $.ajax({
+                             url: form.attr('action'),
+                             method: form.attr('method'),
+                             data: form.serialize(),
+                             success: function(result){
+                         if (result == 'success'){
+                             $('.output_message').text('Message Sent!');  
+                         } else {
+                             $('.output_message').text('Error Sending email!');
+                         }
+                     }
+                 });
+             
 
-                       
-                        <input id="contact-form-name" type="text" name="name" class="form-control scroll-animated" placeholder="* Your Name">
-                        
-                        <input id="contact-form-email" type="text" name="email" class="form-control scroll-animated" placeholder="* Your Email">
-                        
-                        <!-- PHANTOM ELEMENT ( HONEYPOT CAPTCHA FOR SECURITY ) -->
-                        <div class="fhp-input"><input id="contact-form-company" type="text" name="company" class="form-control"></div>
-                        <!-- /PHANTOM ELEMENT ( HONEYPOT CAPTCHA FOR SECURITY ) -->
-                        
-                        <textarea id="contact-form-message" name="message" class="form-control scroll-animated" placeholder="* Your Message"></textarea>
-                        
-                        <button type="submit" class="form-control scroll-animated">Send Message<div class="circle"><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-angle-right" aria-hidden="true"></i></div></button>
-                        
-                        <div class="success-message"><i class="fa fa-check" aria-hidden="true"></i>The Email was Sent Successfully!</div>
+        
 
-                   
-                    </form>
-                    <!-- /CONTACT FORM --> 
+             
+             // Prevents default submission of the form after clicking on the submit button. 
+             return false;   
+           });
+           });
+         
+         </script>
+
+
+
 
 
                 </section>
@@ -580,10 +588,7 @@
                     <ul class="social-icons scroll-animated">
                        
                        
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/justice._.in/"><i class="fa fa-instagram" aria-hidden="true"></i><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         
                         
                     </ul>
